@@ -183,6 +183,18 @@ void data_parse()
 						switch(m_data.lock_addr)
 						{
 							case 0x01:
+								GPIO_SetBits(GPIOC,GPIO_Pin_1); 						 //输出高 gong yang:off
+								delay_ms(200);  
+								GPIO_ResetBits(GPIOC,GPIO_Pin_1); 						 //输出高  on
+								delay_ms(200);  
+
+							
+								gpio_level= GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_0);
+								
+								SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
+								break;
+							
+							case 0x02:
 								GPIO_SetBits(GPIOC,GPIO_Pin_3); 						 //输出高 gong yang:off
 								delay_ms(200);  
 								GPIO_ResetBits(GPIOC,GPIO_Pin_3); 						 //输出高  on
@@ -193,8 +205,6 @@ void data_parse()
 								
 								SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
 								break;
-							case 0x08:
-								 GPIO_ResetBits(GPIOC,GPIO_Pin_2); 						 //输出高  on
 							default:
 								break;
 

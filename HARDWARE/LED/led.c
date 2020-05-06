@@ -47,10 +47,15 @@ void LED_Init(void)
  RS485_RX_EN();
 
 
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;	    		 //LED1-->Pc2 端口配置, 推挽输出
+	GPIO_Init(GPIOC, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GPIO_ResetBits(GPIOC,GPIO_Pin_3); 						 //输出高 
+
 	GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);//关闭jtag，使能SWD，可以用SWD模式调试-----
 	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_2;//Pc3
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
- 	GPIO_Init(GPIOC, &GPIO_InitStructure);//初始化
+	GPIO_Init(GPIOC, &GPIO_InitStructure);//初始化
 	
 }
  
