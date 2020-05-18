@@ -380,7 +380,50 @@ static void key1PressCallback(KEY_Status status)
   }
 }
 
+u8 key2_flag=0;
+u8 key4_flag=0;
+void key_fun(void)
+{
+		if((0==key2_flag)&&(KEY2==0))
+		{
+			delay_ms(10);//去抖动 
+			if(KEY2==0)
+			{
+				SEGGER_RTT_printf(0, "close-key2_flag= %d\n",key2_flag); 
+				key2_flag=1;
+			}
+		}
+		if(key2_flag&&(KEY2==1))//default
+		{
+			delay_ms(10);//去抖动 
+			if(KEY2==1)
+			{
+				SEGGER_RTT_printf(0, "open-key2_flag= %d\n",key2_flag); 
+				key2_flag=0;
+			}
+		}
+		
+		
+		if((0==key4_flag)&&(KEY4==0))
+		{
+			delay_ms(10);//去抖动 
+			if(KEY4==0)
+			{
+				SEGGER_RTT_printf(0, "close-key4_flag= %d\n",key4_flag); 
+				key4_flag=1;
+			}
+		}
+		if(key4_flag&&(KEY4==1))//default
+		{
+			delay_ms(10);//去抖动 
+			if(KEY4==1)
+			{
+				SEGGER_RTT_printf(0, "open-key4_flag= %d\n",key4_flag); 
+				key4_flag=0;
+			}
+		}
 
+}
  int main(void)
  {	
 	u8 t;
@@ -392,9 +435,11 @@ static void key1PressCallback(KEY_Status status)
 	//uart_init(9600,HCHO_Test);	 //串口初始化为9600
 	SdkEvalComIOConfig(Process_InputData);
 	 
-	LED_Init();		  	 //初始化与LED连接的硬件接口 
 	//EXTIX_Init();		//外部中断初始化
+	KEY_Init();
 	 
+	LED_Init();		  	 //初始化与LED连接的硬件接口 
+
 	//TIM4 led
 	TIM4_Int_Init(9999,7199);//10Khz的计数频率，计数到10000为1s  
 	TIM4_Set(1);			//定时器4
@@ -413,7 +458,7 @@ static void key1PressCallback(KEY_Status status)
 
 	//USART1_Puts("1234567\r\n");
 	 
-	 
+
 	while(1)
 	{
 		if((1== packerflag))
@@ -473,6 +518,49 @@ static void key1PressCallback(KEY_Status status)
       }
     }
 
+		key_fun();
+		
+
+
+//		
+//		t=KEY_close_Scan();		//得到键值
+//		
+//		if(key_Level==0)
+//		{
+//			key_Level=1;
+//			switch(t)
+//			{				 
+//				case KEY2_PRES:
+//					SEGGER_RTT_printf(0, "KEY_PRES_CLOSE = %d\n",t); 
+//					break;
+//				case KEY4_PRES:
+//					SEGGER_RTT_printf(0, "KEY_PRES_CLOSE = %d\n",t); 
+//					break;
+
+//				default:
+//					delay_ms(10);	
+//			} 
+//		}
+//		
+//		t=KEY_open_Scan();		//得到键值
+//		if(key_Level==1)
+//		{
+//			key_Level = 0;
+//			switch(t)
+//			{				 
+//				case KEY2_PRES:
+//					SEGGER_RTT_printf(0, "KEY_PRES_OPEN = %d\n",t); 
+//					break;
+//				case KEY4_PRES:
+//					SEGGER_RTT_printf(0, "KEY_PRES_OPEN = %d\n",t); 
+//					break;
+
+//				default:
+//					delay_ms(10);	
+//			}
+
+//		}		
+		
 	}	 
 }
 

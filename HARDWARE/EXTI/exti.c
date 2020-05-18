@@ -29,54 +29,38 @@ void EXTIX_Init(void)
 
 	  KEY_Init();//初始化按键对应io模式
 
-//    //GPIOC.5 中断线以及中断初始化配置
-//  	GPIO_EXTILineConfig(GPIO_PortSourceGPIOC,GPIO_PinSource5);
 
-//  	EXTI_InitStructure.EXTI_Line=EXTI_Line5;
+//    //GPIOC2	  中断线以及中断初始化配置
+//  	GPIO_EXTILineConfig(GPIO_PortSourceGPIOC,GPIO_PinSource2);
+
+//  	EXTI_InitStructure.EXTI_Line=EXTI_Line2;
 //  	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;	
-//  	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;//下降沿触发
+//  	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising_Falling;//EXTI_Trigger_Rising_Falling;
 //  	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-//  	EXTI_Init(&EXTI_InitStructure);	 	//根据EXTI_InitStruct中指定的参数初始化外设EXTI寄存器
+//  	EXTI_Init(&EXTI_InitStructure);	  	//根据EXTI_InitStruct中指定的参数初始化外设EXTI寄存器
 
-    //GPIOA.15	  中断线以及中断初始化配置
-  	GPIO_EXTILineConfig(GPIO_PortSourceGPIOE,GPIO_PinSource1);
+////    //GPIOA2	  中断线以及中断初始化配置
+////  	GPIO_EXTILineConfig(GPIO_PortSourceGPIOA,GPIO_PinSource2);
 
-  	EXTI_InitStructure.EXTI_Line=EXTI_Line1;
-  	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;	
-  	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
-  	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-  	EXTI_Init(&EXTI_InitStructure);	  	//根据EXTI_InitStruct中指定的参数初始化外设EXTI寄存器
-
-//    //GPIOA.0	  中断线以及中断初始化配置
-//  	GPIO_EXTILineConfig(GPIO_PortSourceGPIOA,GPIO_PinSource0);
-
-//   	EXTI_InitStructure.EXTI_Line=EXTI_Line0;
-//  	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;	
-//  	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
-//  	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-//  	EXTI_Init(&EXTI_InitStructure);		//根据EXTI_InitStruct中指定的参数初始化外设EXTI寄存器
+////  	EXTI_InitStructure.EXTI_Line=EXTI_Line2;
+////  	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;	
+////  	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising_Falling;//EXTI_Trigger_Rising_Falling;
+////  	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+////  	EXTI_Init(&EXTI_InitStructure);	  	//根据EXTI_InitStruct中指定的参数初始化外设EXTI寄存器
 
 
- 
-//  	NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;			//使能按键所在的外部中断通道
-//  	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x02;	//抢占优先级2 
-//  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;					//子优先级1
-//  	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;								//使能外部中断通道
-//  	NVIC_Init(&NVIC_InitStructure);  	  //根据NVIC_InitStruct中指定的参数初始化外设NVIC寄存器
-//		
-//		NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;			//使能按键所在的外部中断通道
+//   	NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQn;			//使能按键所在的外部中断通道
 //  	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x02;	//抢占优先级2， 
-//  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x01;					//子优先级1
+//  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x00;					//子优先级1
 //  	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;								//使能外部中断通道
 //  	NVIC_Init(&NVIC_InitStructure); 
- 
- 
-   	NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;			//使能按键所在的外部中断通道
-  	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x02;	//抢占优先级2， 
-  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x00;					//子优先级1
-  	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;								//使能外部中断通道
-  	NVIC_Init(&NVIC_InitStructure); 
- 
+//		
+//		
+////   	NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQn;			//使能按键所在的外部中断通道
+////  	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x02;	//抢占优先级2， 
+////  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x01;					//子优先级1
+////  	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;								//使能外部中断通道
+////  	NVIC_Init(&NVIC_InitStructure); 
 }
 
  
@@ -100,13 +84,33 @@ void EXTIX_Init(void)
 //}
 
 
-void EXTI1_IRQHandler(void)
+void EXTI2_IRQHandler(void)
 {
 	//SEGGER_RTT_printf(0, "EXTI1_IRQHandler\n"); 
   delay_ms(10);    //消抖			 
-  if(KEY1==0)	{
-		SEGGER_RTT_printf(0, "1-EXTI1_IRQHandler\n"); 
+  //if(GI_2==0)//
+	if(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2) ==0)	
+	{
+		SEGGER_RTT_printf(0, "2-close-EXTI2_IRQHandler\n"); 
 		//LED1=!LED1;
 	}
-	 EXTI_ClearITPendingBit(EXTI_Line1);  //清除LINE15线路挂起位
+	else
+	{
+		SEGGER_RTT_printf(0, "2-open-EXTI2_IRQHandler\n"); 
+		//LED1=!LED1;
+	}
+	
+	
+	if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_2) ==0)	
+	{
+		SEGGER_RTT_printf(0, "4-close-EXTI2_IRQHandler\n"); 
+		//LED1=!LED1;
+	}
+	else
+	{
+		SEGGER_RTT_printf(0, "4-open-EXTI2_IRQHandler\n"); 
+		//LED1=!LED1;
+	}
+	
+	 EXTI_ClearITPendingBit(EXTI_Line2);  //清除LINE15线路挂起位
 }
