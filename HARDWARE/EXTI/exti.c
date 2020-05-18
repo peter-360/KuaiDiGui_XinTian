@@ -102,11 +102,11 @@ void EXTIX_Init(void)
 
 void EXTI1_IRQHandler(void)
 {
-	SEGGER_RTT_printf(0, "EXTI1_IRQHandler\n"); 
+	//SEGGER_RTT_printf(0, "EXTI1_IRQHandler\n"); 
   delay_ms(10);    //消抖			 
   if(KEY1==0)	{
 		SEGGER_RTT_printf(0, "1-EXTI1_IRQHandler\n"); 
-		LED1=!LED1;
+		//LED1=!LED1;
 	}
 	 EXTI_ClearITPendingBit(EXTI_Line1);  //清除LINE15线路挂起位
 }

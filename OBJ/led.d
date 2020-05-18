@@ -31,3 +31,7 @@
 ..\obj\led.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\led.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\led.o: ..\SYSTEM\delay\delay.h
+..\obj\led.o: ..\RTT\SEGGER_RTT.h
+..\obj\led.o: ..\RTT\SEGGER_RTT_Conf.h
+..\obj\led.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\led.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

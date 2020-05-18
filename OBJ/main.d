@@ -40,3 +40,5 @@
 ..\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 ..\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\main.o: ..\HARDWARE\TIMER\timer.h
+..\obj\main.o: ..\HARDWARE\KEY\KEY.h
+..\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

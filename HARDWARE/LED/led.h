@@ -31,5 +31,10 @@ static void RS485_delay(__IO u32 nCount)
 
 void LED_Init(void);//≥ı ºªØ
 
+
+
+void TIM4_Int_Init(u16 arr,u16 psc);
+void TIM4_Set(u8 sta);
+
 		 				    
 #endif

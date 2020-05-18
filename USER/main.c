@@ -352,21 +352,59 @@ void data_parse()
 }
 
 
+#include "KEY.h"
+#include <stdbool.h>
+static __IO int key1ShortPressCount = 0;
+static __IO int key1LongPressCount  = 0;
+static __IO int key2ShortPressCount = 0;
+static __IO int key2LongPressCount  = 0;
+
+bool mode_nomal;
+
+/* Function declarations -----------------------------------------------------*/
+static void key1PressCallback(KEY_Status status);
+/**
+  * @brief  Key 1 press callback.
+  * @param  None.
+  * @return None.
+  */
+static void key1PressCallback(KEY_Status status)
+{
+  if(status == KEY_ShortPress)
+  {
+    key1ShortPressCount++;
+  }
+  else if(status == KEY_LongPress)
+  {
+    key1LongPressCount++;
+  }
+}
 
 
  int main(void)
  {	
 	u8 t;
 	u8 len=3;	
+	KEY_Status status;
  
 	delay_init();	    	 //延时函数初始化	
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);// 设置中断优先级分组2
 	//uart_init(9600,HCHO_Test);	 //串口初始化为9600
 	SdkEvalComIOConfig(Process_InputData);
+	 
 	LED_Init();		  	 //初始化与LED连接的硬件接口 
-	 EXTIX_Init();		//外部中断初始化
+	//EXTIX_Init();		//外部中断初始化
+	 
+	//TIM4 led
+	TIM4_Int_Init(9999,7199);//10Khz的计数频率，计数到10000为1s  
+	TIM4_Set(1);			//定时器4
+	//TIM2 key
+	KEY_Init1(KEY_Pin2);
+	KEY_SetPressCallback(KEY_Pin2, key1PressCallback);
+	//TIM3 uart
 	TIM3_Int_Init(99,7199);//10Khz的计数频率，计数到100为10ms  
 	TIM3_Set(0);			//关闭定时器3
+	 
 //	RS485_RX_EN();
 //	//printf("1-len=%d\r\n",len);
 //	delay_ms(1300);
@@ -396,9 +434,44 @@ void data_parse()
 			Uart1_Rx   = 0 ;
 			packerflag = 0;
 			//Uart1_index_flag_end =0;
-
-			
 		}
+		
+    status = KEY_GetStatus(KEY_Pin2);
+    if(status != KEY_NoPress)
+    {
+      if(status == KEY_ShortPress)
+      {
+				//mode_nomal= ~mode_nomal;
+        key2ShortPressCount++;
+				if(0== mode_nomal)
+				{
+					//TIM4_Set(0);			//定时器4
+					TIM4_Int_Init(999,7199);//10Khz的计数频率，计数到1000为100ms  
+					TIM4_Set(1);
+					mode_nomal =1;
+					SEGGER_RTT_printf(0, "1mode_nomal = %d\n",mode_nomal); 
+					
+					
+					//jiance if off ,on lock
+				}
+				else//nomal
+				{
+					TIM4_Int_Init(9999,7199);//10Khz的计数频率，计数到10000为1s  
+					TIM4_Set(1);
+					mode_nomal =0;
+					SEGGER_RTT_printf(0, "2mode_nomal = %d\n",mode_nomal); 
+				}
+				SEGGER_RTT_printf(0, "key2ShortPressCount = %d\n",key2ShortPressCount); 
+      }
+      else
+      {
+				TIM4_Int_Init(999,7199);//10Khz的计数频率，计数到1000为100ms  
+				TIM4_Set(1);
+				mode_nomal =1;
+        key2LongPressCount++;
+				SEGGER_RTT_printf(0, "key2LongPressCount = %d\n",key2LongPressCount); 
+      }
+    }
 
 	}	 
 }
