@@ -57,8 +57,8 @@ void TIM3_Int_Init(u16 arr,u16 psc)
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQ通道被使能
 	NVIC_Init(&NVIC_InitStructure);  //初始化NVIC寄存器
 
-
-	TIM_Cmd(TIM3, ENABLE);  //使能TIMx					 
+	TIM_Cmd(TIM3, ENABLE);  //使能TIMx					
+	TIM_ClearITPendingBit(TIM3, TIM_IT_Update  );	
 }
 
 

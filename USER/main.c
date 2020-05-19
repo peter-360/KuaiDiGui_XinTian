@@ -424,11 +424,14 @@ void key_fun(void)
 		}
 
 }
+
+u8 key_mode =1;
  int main(void)
  {	
 	u8 t;
 	u8 len=3;	
 	KEY_Status status;
+	u32 tick_times=0; 
  
 	delay_init();	    	 //延时函数初始化	
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);// 设置中断优先级分组2
@@ -441,8 +444,9 @@ void key_fun(void)
 	LED_Init();		  	 //初始化与LED连接的硬件接口 
 
 	//TIM4 led
-	TIM4_Int_Init(9999,7199);//10Khz的计数频率，计数到10000为1s  
-	TIM4_Set(1);			//定时器4
+	TIM4_Int_Init(2999,7199);//10Khz的计数频率，计数到10000为1s  
+	TIM4_Set(0);			//定时器4
+	 
 	//TIM2 key
 	KEY_Init1(KEY_Pin2);
 	KEY_SetPressCallback(KEY_Pin2, key1PressCallback);
@@ -490,19 +494,19 @@ void key_fun(void)
         key2ShortPressCount++;
 				if(0== mode_nomal)
 				{
-					//TIM4_Set(0);			//定时器4
-					TIM4_Int_Init(999,7199);//10Khz的计数频率，计数到1000为100ms  
-					TIM4_Set(1);
+//					TIM4_Int_Init(999,7199);//10Khz的计数频率，计数到1000为100ms  
+//					TIM4_Set(1);
+					key_mode = 2;
 					mode_nomal =1;
 					SEGGER_RTT_printf(0, "1mode_nomal = %d\n",mode_nomal); 
-					
-					
+
 					//jiance if off ,on lock
 				}
-				else//nomal
+				else//nomal ==1
 				{
-					TIM4_Int_Init(9999,7199);//10Khz的计数频率，计数到10000为1s  
-					TIM4_Set(1);
+//					TIM4_Int_Init(9999,7199);//10Khz的计数频率，计数到10000为1s  
+//					TIM4_Set(1);
+					key_mode = 1;
 					mode_nomal =0;
 					SEGGER_RTT_printf(0, "2mode_nomal = %d\n",mode_nomal); 
 				}
@@ -510,16 +514,59 @@ void key_fun(void)
       }
       else
       {
-				TIM4_Int_Init(999,7199);//10Khz的计数频率，计数到1000为100ms  
-				TIM4_Set(1);
+//				TIM4_Int_Init(999,7199);//10Khz的计数频率，计数到1000为100ms  
+//				TIM4_Set(1);
+				if(1==key_mode)
+				{
+					SEGGER_RTT_printf(0, "---key_mode =3---\n"); 
+					key_mode = 3;
+					TIM4_Set(1);
+				}
 				mode_nomal =1;
         key2LongPressCount++;
 				SEGGER_RTT_printf(0, "key2LongPressCount = %d\n",key2LongPressCount); 
+				
       }
     }
-
+		tick_times++;
+		if(tick_times%100==0)
+		{
+			if(1== key_mode)
+			{
+				SEGGER_RTT_printf(0, "---test1---\n"); 
+				LED1=!LED1;
+			}
+		}
+		if(tick_times%10==0)//2
+		{
+			if(2== key_mode)
+			{
+				SEGGER_RTT_printf(0, "---test2---\n"); 
+				LED1=!LED1;
+			}
+		}
+		if(tick_times%10==0)//3
+		{
+			if(3== key_mode)
+			{
+				SEGGER_RTT_printf(0, "---test3---\n"); 
+				LED1=!LED1;
+			}
+		}
+		delay_ms(10); 
+		
+		
+		//SEGGER_RTT_printf(0, "---test---\n"); 
 		key_fun();
 		
+		
+	}	 
+}
+
+
+
+
+
 
 
 //		
@@ -560,9 +607,13 @@ void key_fun(void)
 //			}
 
 //		}		
-		
-	}	 
-}
+
+
+
+
+
+
+
 
 
 //		if(USART_RX_STA&0x8000)

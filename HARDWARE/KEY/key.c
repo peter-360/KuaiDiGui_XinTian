@@ -1,5 +1,6 @@
 #include "key.h"
 #include "delay.h"
+#include "SEGGER_RTT.h"
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK Mini STM32开发板
@@ -29,9 +30,14 @@ void KEY_Init(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
  	GPIO_Init(GPIOC, &GPIO_InitStructure);//初始化GPIOA15
 	
-	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_2;//PA2
+	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_0;//PC0
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
- 	GPIO_Init(GPIOA, &GPIO_InitStructure);//初始化GPIOC5
+ 	GPIO_Init(GPIOC, &GPIO_InitStructure);//初始化GPIOA15
+	
+	
+//	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_2;//PA2
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
+// 	GPIO_Init(GPIOA, &GPIO_InitStructure);//初始化GPIOC5
 
 	
 } 
@@ -317,6 +323,7 @@ void KEY_SetPressCallback(KEY_Pin pin, void (*fun)(KEY_Status))
 void KEY_TIM_IRQHandler(void)
 {
 	uint32_t i;
+	//SEGGER_RTT_printf(0, "KEY_TIM_IRQHandler\n"); 
   if(TIM_GetITStatus(KEY_TIM, TIM_IT_Update) != RESET)
   {
     TIM_ClearITPendingBit(KEY_TIM, TIM_IT_Update);

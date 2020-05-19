@@ -36,5 +36,7 @@ void LED_Init(void);//≥ı ºªØ
 void TIM4_Int_Init(u16 arr,u16 psc);
 void TIM4_Set(u8 sta);
 
+extern u8 key_mode;
+
 		 				    
 #endif
