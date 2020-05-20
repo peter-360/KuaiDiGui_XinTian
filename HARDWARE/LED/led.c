@@ -23,8 +23,6 @@ void LED_Init(void)
  	
  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA|RCC_APB2Periph_GPIOB|RCC_APB2Periph_GPIOC, ENABLE);	 //使能PA,PD端口时钟
 	
- GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
- GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
 
 // GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;				 //LED0-->PA.8 端口配置
 // GPIO_Init(GPIOA, &GPIO_InitStructure);					 //根据设定参数初始化GPIOA.8
@@ -38,27 +36,49 @@ void LED_Init(void)
 // GPIO_Init(GPIOC, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
 // GPIO_SetBits(GPIOC,GPIO_Pin_2); 						 //输出高 
 	
+	
+	
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	//a13 a14 a15    b3 b4
+	GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);//关闭jtag，使能SWD，可以用SWD模式调试
 	//LED
- GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;	    		 //LED1-->PB5 端口配置, 推挽输出
- GPIO_Init(GPIOB, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
- GPIO_ResetBits(GPIOB,GPIO_Pin_5); 						 //输出高 
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;	    		 //LED1-->PB5 端口配置, 推挽输出
+	GPIO_Init(GPIOB, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GPIO_ResetBits(GPIOB,GPIO_Pin_5); 						 //输出高 
 
 	//rs485 RE
- GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;	    		 //LED1-->Pc2 端口配置, 推挽输出
- GPIO_Init(GPIOA, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
- RS485_RX_EN();
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;	    		 //LED1-->Pc2 端口配置, 推挽输出
+	GPIO_Init(GPIOA, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	RS485_RX_EN();
 
 
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;	    		 //LED1-->Pc2 端口配置, 推挽输出
+	//group1
+	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_0;//
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
+ 	GPIO_Init(GPIOC, &GPIO_InitStructure);//
+	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
 	GPIO_Init(GPIOC, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
-	GPIO_ResetBits(GPIOC,GPIO_Pin_3); 						 //输出高 
+	GO_1=0; 						 //输出高 
+
+
+	//group2
+	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_2;//
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
+ 	GPIO_Init(GPIOC, &GPIO_InitStructure);//
 	
-	
-	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;	    		 //LED1-->Pc2 端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
 	GPIO_Init(GPIOC, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
-	GPIO_ResetBits(GPIOC,GPIO_Pin_1); 						 //输出高 
+	GO_2=0;	 						 //输出高 
+
+	
+
 
 //	GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);//关闭jtag，使能SWD，可以用SWD模式调试-----
 //	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_2;//Pc3
@@ -125,49 +145,111 @@ void TIM4_Int_Init(u16 arr,u16 psc)
 }
 
 u8 lock_channel=0;
+u8 lock_channel_mode2=0;
 //定时器3中断服务程序
 void TIM4_IRQHandler(void)   //TIM4中断
 {
+	uint8_t gpio_level;
 	SEGGER_RTT_printf(0, "TIM4_IRQHandler\n"); 
 	if (TIM_GetITStatus(TIM4, TIM_IT_Update) != RESET)  //检查TIM4更新中断发生与否
 	{
 		TIM_ClearITPendingBit(TIM4, TIM_IT_Update  );  //清除TIMx更新中断标志 
 		//LED1=!LED1;
 		//Uart1_Rx =0 ;
-		SEGGER_RTT_printf(0, "lock_channel= %d\n",lock_channel);
-		if(lock_channel <=25)
-		{
-			switch(lock_channel)
-			{
-				case 1://power on
-					SEGGER_RTT_printf(0, "lock_channel=%d\n",lock_channel);
-					GPIO_SetBits(GPIOC,GPIO_Pin_1); 						 //输出高 gong yang:off
-					delay_ms(20);  
-					GPIO_ResetBits(GPIOC,GPIO_Pin_1); 						 //输出高  on
-					delay_ms(20);  
-				
-					break;
-				case 2://
-					SEGGER_RTT_printf(0, "lock_channel=%d\n",lock_channel);
-					GPIO_SetBits(GPIOC,GPIO_Pin_3); 						 //输出高 gong yang:off
-					delay_ms(20);  
-					GPIO_ResetBits(GPIOC,GPIO_Pin_3); 						 //输出高  on
-					delay_ms(20);  
-
-					break;
 		
-				default:
-					break;
-			}
-			TIM4_Set(1);			//TIM 
-		}
-		else
+		if(3== key_mode)
 		{
-			TIM4_Set(0);			//TIM 
-			lock_channel=0;
-			key_mode = 1;
+			SEGGER_RTT_printf(0, "mode3-lock_channel= %d\n",lock_channel);
+			if(lock_channel <=25)
+			{
+				switch(lock_channel)
+				{
+					case 1://power on
+						SEGGER_RTT_printf(0, "lock_channel=%d\n",lock_channel);
+						GO_1=1; 					//open
+						delay_ms(20);  
+						GO_1=0;						//close
+						delay_ms(20);  
+					
+						break;
+					case 2://
+						SEGGER_RTT_printf(0, "lock_channel=%d\n",lock_channel);
+						GO_2=1;							 //open
+						delay_ms(20);  
+						GO_2=0;	 						 //close
+						delay_ms(20);  
+
+						break;
+			
+					default:
+						break;
+				}
+				TIM4_Set(1);			//TIM 
+			}
+			else
+			{
+				TIM4_Set(0);			//TIM 
+				lock_channel=0;
+				key_mode = 1;
+			}
+			lock_channel++;
 		}
-		lock_channel++;
+		
+		
+		if(2== key_mode)
+		{
+			SEGGER_RTT_printf(0, "mode3-lock_channel_mode2= %d\n",lock_channel_mode2);
+			if(lock_channel_mode2 <=25)
+			{
+				switch(lock_channel_mode2)
+				{
+					case 1://power on
+						SEGGER_RTT_printf(0, "lock_channel_mode2=%d\n",lock_channel_mode2);
+						
+						gpio_level= GI_1;
+						SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
+						if(0== gpio_level)
+						{
+							GO_1=1;	 						 //输出高 gong yang:off
+							delay_ms(20);  
+							GO_1=0; 						 //输出高  on
+							delay_ms(20);  
+						}
+					
+						break;
+					case 2://
+						SEGGER_RTT_printf(0, "lock_channel_mode2=%d\n",lock_channel_mode2);
+					
+						gpio_level= GI_2;
+						SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
+						if(0== gpio_level)
+						{
+							GO_2=1;							 //输出高 gong yang:off
+							delay_ms(20);  
+							GO_2=0;	 						 //输出高  on
+							delay_ms(20);
+						}							
+
+						break;
+			
+					default:
+						break;
+				}
+				TIM4_Set(1);			//TIM 
+			}
+			else
+			{
+				lock_channel_mode2=0;
+			}
+			lock_channel_mode2++;
+		}
+		
+		
+		if(1== key_mode)
+		{
+			TIM4_Set(0);
+		}
+		
 	}
 }
 

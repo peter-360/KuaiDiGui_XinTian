@@ -182,11 +182,11 @@ void data_parse()
 					{
 						switch(m_data.lock_addr)
 						{
-							case 0x01:
-								GPIO_SetBits(GPIOC,GPIO_Pin_1); 						 //输出高 gong yang:off
-								delay_ms(200);  
-								GPIO_ResetBits(GPIOC,GPIO_Pin_1); 						 //输出高  on
-								delay_ms(200);  
+							case 1:
+								GO_1=1; 					//open
+								delay_ms(20);  
+								GO_1=0;						//close
+								delay_ms(20);  
 
 							
 								gpio_level= GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_0);
@@ -194,11 +194,11 @@ void data_parse()
 								SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
 								break;
 							
-							case 0x02:
-								GPIO_SetBits(GPIOC,GPIO_Pin_3); 						 //输出高 gong yang:off
-								delay_ms(200);  
-								GPIO_ResetBits(GPIOC,GPIO_Pin_3); 						 //输出高  on
-								delay_ms(200);  
+							case 2:
+								GO_2=1;							 //open
+								delay_ms(20);  
+								GO_2=0;	 						 //close
+								delay_ms(20);  
 
 							
 								gpio_level= GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2);
@@ -384,19 +384,19 @@ u8 key2_flag=0;
 u8 key4_flag=0;
 void key_fun(void)
 {
-		if((0==key2_flag)&&(KEY2==0))
+		if((0==key2_flag)&&(GI_2==0))
 		{
 			delay_ms(10);//去抖动 
-			if(KEY2==0)
+			if(GI_2==0)
 			{
 				SEGGER_RTT_printf(0, "close-key2_flag= %d\n",key2_flag); 
 				key2_flag=1;
 			}
 		}
-		if(key2_flag&&(KEY2==1))//default
+		if(key2_flag&&(GI_2==1))//default
 		{
 			delay_ms(10);//去抖动 
-			if(KEY2==1)
+			if(GI_2==1)
 			{
 				SEGGER_RTT_printf(0, "open-key2_flag= %d\n",key2_flag); 
 				key2_flag=0;
@@ -404,19 +404,19 @@ void key_fun(void)
 		}
 		
 		
-		if((0==key4_flag)&&(KEY4==0))
+		if((0==key4_flag)&&(GI_4==0))
 		{
 			delay_ms(10);//去抖动 
-			if(KEY4==0)
+			if(GI_4==0)
 			{
 				SEGGER_RTT_printf(0, "close-key4_flag= %d\n",key4_flag); 
 				key4_flag=1;
 			}
 		}
-		if(key4_flag&&(KEY4==1))//default
+		if(key4_flag&&(GI_4==1))//default
 		{
 			delay_ms(10);//去抖动 
-			if(KEY4==1)
+			if(GI_4==1)
 			{
 				SEGGER_RTT_printf(0, "open-key4_flag= %d\n",key4_flag); 
 				key4_flag=0;
@@ -438,13 +438,14 @@ u8 key_mode =1;
 	//uart_init(9600,HCHO_Test);	 //串口初始化为9600
 	SdkEvalComIOConfig(Process_InputData);
 	 
+
+	//KEY_Init();
 	//EXTIX_Init();		//外部中断初始化
-	KEY_Init();
 	 
 	LED_Init();		  	 //初始化与LED连接的硬件接口 
 
-	//TIM4 led
-	TIM4_Int_Init(2999,7199);//10Khz的计数频率，计数到10000为1s  
+	 //TIM4 led->  mode3: key long push:lock on one by one
+	TIM4_Int_Init(2999,7199);//10Khz的计数频率，计数到3000为0.3s  
 	TIM4_Set(0);			//定时器4
 	 
 	//TIM2 key
@@ -492,17 +493,17 @@ u8 key_mode =1;
       {
 				//mode_nomal= ~mode_nomal;
         key2ShortPressCount++;
-				if(0== mode_nomal)
+				if(0== mode_nomal)//mode2
 				{
-//					TIM4_Int_Init(999,7199);//10Khz的计数频率，计数到1000为100ms  
-//					TIM4_Set(1);
+					TIM4_Int_Init(999,7199);//10Khz的计数频率，计数到1000为100ms  
+					TIM4_Set(1);
 					key_mode = 2;
 					mode_nomal =1;
 					SEGGER_RTT_printf(0, "1mode_nomal = %d\n",mode_nomal); 
 
 					//jiance if off ,on lock
 				}
-				else//nomal ==1
+				else//mode1, nomal ==1
 				{
 //					TIM4_Int_Init(9999,7199);//10Khz的计数频率，计数到10000为1s  
 //					TIM4_Set(1);
@@ -512,7 +513,7 @@ u8 key_mode =1;
 				}
 				SEGGER_RTT_printf(0, "key2ShortPressCount = %d\n",key2ShortPressCount); 
       }
-      else
+      else//mode 3
       {
 //				TIM4_Int_Init(999,7199);//10Khz的计数频率，计数到1000为100ms  
 //				TIM4_Set(1);

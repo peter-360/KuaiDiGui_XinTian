@@ -23,6 +23,16 @@ static void RS485_delay(__IO u32 nCount)
 //#define LED0 PAout(8)	// PA8
 #define LED1 PBout(5)	// PD2	
 
+
+#define GI_1  GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_0)//读取按键1
+#define GO_1 PCout(1)	//
+
+#define GI_2  GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2)//读取按键1
+#define GO_2 PCout(3)	//
+
+#define GI_4  GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_2)//读取按键0
+#define GO_4 PAout(3)	//
+
 /*控制收发引脚*/
 //进入接收模式,必须要有延时等待485处理完数据
 #define RS485_RX_EN()			RS485_delay(1000); GPIO_ResetBits(GPIOA,GPIO_Pin_11);  RS485_delay(1000);

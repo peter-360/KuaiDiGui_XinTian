@@ -20,9 +20,6 @@
 //#define WK_UP  PAin(0)	 
  
 
-//#define GI_2  GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2)//读取按键1
-
-
 
 #define KEY2  GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2)//读取按键1
 #define KEY4  GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_2)//读取按键0
