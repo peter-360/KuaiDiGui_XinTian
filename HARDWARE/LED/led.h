@@ -24,14 +24,80 @@ static void RS485_delay(__IO u32 nCount)
 #define LED1 PBout(5)	// PD2	
 
 
-#define GI_1  GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_0)//读取按键1
 #define GO_1 PCout(1)	//
+#define GO_2 PCout(3)	//
+#define GO_3 PAout(1)	//
+#define GO_4 PAout(3)	//
+#define GO_5 PAout(5)	//
+#define GO_6 PAout(7)	//
+#define GO_7 PCout(5)	//
+#define GO_8 PBout(1)	//
+#define GO_9 PEout(5)	//
+#define GO_10 PEout(2)	//
+#define GO_11 PEout(8)	//
+#define GO_12 PEout(10)	//
+#define GO_13 PEout(12)	//
+#define GO_14 PEout(14)	//
+#define GO_15 PBout(10)	//
+#define GO_16 PBout(12)	//
+#define GO_17 PBout(14)	//
+#define GO_18 PDout(8)	//
+#define GO_19 PDout(10)	//
+#define GO_20 PDout(12)	//
+#define GO_21 PDout(14)	//
+#define GO_22 PCout(6)	//
+#define GO_23 PCout(8)	//
+#define GO_24 PAout(8)	//
+
+
+#define GI_1  GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_0)//读取按键1
 
 #define GI_2  GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2)//读取按键1
-#define GO_2 PCout(3)	//
+
+#define GI_3  GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0)//
 
 #define GI_4  GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_2)//读取按键0
-#define GO_4 PAout(3)	//
+
+#define GI_5  GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_4)//
+
+#define GI_6  GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_6)//
+
+#define GI_7  GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_4)//
+
+#define GI_8  GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_0)//
+
+#define GI_9  GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_3)//
+
+#define GI_10  GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_4)//
+
+#define GI_11  GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_7)//
+
+#define GI_12  GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_9)//
+
+#define GI_13  GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_11)//
+
+#define GI_14  GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_13)//
+
+#define GI_15  GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_15)//
+
+#define GI_16  GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_11)//
+
+#define GI_17  GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_13)//
+
+#define GI_18  GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_15)//
+
+#define GI_19  GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_9)//
+
+#define GI_20  GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_11)//
+
+#define GI_21  GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_13)//
+
+#define GI_22  GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_15)//
+
+#define GI_23  GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_7)//
+
+#define GI_24  GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_9)//
+
 
 
 

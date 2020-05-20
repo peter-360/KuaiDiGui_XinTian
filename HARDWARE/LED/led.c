@@ -55,30 +55,172 @@ void LED_Init(void)
 
 
 
-	//group1
+	//i group1
 	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_0;//
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
  	GPIO_Init(GPIOC, &GPIO_InitStructure);//
+	//i group2
+	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_2;//
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
+ 	GPIO_Init(GPIOC, &GPIO_InitStructure);//
 	
+	
+	
+	//o group1
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;	    		 //端口配置, 推挽输出
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
 	GPIO_Init(GPIOC, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
 	GO_1=0; 						 //输出高 
-
-
-	//group2
-	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_2;//
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
- 	GPIO_Init(GPIOC, &GPIO_InitStructure);//
 	
+	//o group2
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;	    		 //端口配置, 推挽输出
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
 	GPIO_Init(GPIOC, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
 	GO_2=0;	 						 //输出高 
 
-	
+	//o group3
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOA, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_3=0;	 						 //输出高 
+	//o group4
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOA, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_4=0;	 						 //输出高 
+	//o group5
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOA, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_5=0;	 						 //输出高 
+	//o group6
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOA, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_6=0;	 						 //输出高 
+	//o group7
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOC, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_7=0;	 						 //输出高 	
+	//o group8
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOB, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_8=0;	 						 //输出高 	
+	//o group9
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOE, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_9=0;	 						 //输出高 
+	//o group10
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOE, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_10=0;	 						 //输出高 
+	//o group11
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOE, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_11=0;	 						 //输出高 
+	//o group12
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOE, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_12=0;	 						 //输出高 
+	//o group13
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOE, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_13=0;	 						 //输出高 
+	//o group14
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOE, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_14=0;	 						 //输出高 
+	//o group15
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOB, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_15=0;	 						 //输出高 
+	//o group16
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOB, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_16=0;	 						 //输出高 
+	//o group17
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOB, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_17=0;	 						 //输出高 
+
+	//o group18
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOD, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_18=0;	 						 //输出高 
+
+	//o group19
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOD, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_19=0;	 						 //输出高 
+
+	//o group20
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOD, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_20=0;	 						 //输出高 
+
+	//o group21
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOD, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_21=0;	 						 //输出高 
+
+	//o group22
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOC, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_22=0;	 						 //输出高 
+
+	//o group23
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOC, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_23=0;	 						 //输出高 
+
+	//o group24
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;	    		 //端口配置, 推挽输出
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO口速度为50MHz
+	GPIO_Init(GPIOA, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GO_24=0;	 						 //输出高 
+
+
 
 
 //	GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);//关闭jtag，使能SWD，可以用SWD模式调试-----

@@ -154,6 +154,9 @@ void data_parse()
 	uint8_t tx_Buffer[256]={0};        //?????
 	//uint8_t length = 0;             //??
 	uint8_t gpio_level;
+	uint8_t grp_level_1;
+	uint8_t grp_level_2;
+	uint8_t grp_level_3;
 	uint8_t board_addr;
 	
 	uint8_t Uart1_Buffer_T[256]={0};        //?????
@@ -194,11 +197,9 @@ void data_parse()
 									delay_ms(20);  
 									GO_1=0;						//close
 									delay_ms(20);  
-
 								
 									gpio_level= GI_1;
-									
-									SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
 								
 								case 2:
@@ -207,11 +208,208 @@ void data_parse()
 									GO_2=0;	 						 //close
 									delay_ms(20);  
 
-								
 									gpio_level= GI_2;
-									
-									SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 									break;
+								case 3:
+									GO_3=1;							 //open
+									delay_ms(20);  
+									GO_3=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_3;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 4:
+									GO_4=1;							 //open
+									delay_ms(20);  
+									GO_4=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_4;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 5:
+									GO_5=1;							 //open
+									delay_ms(20);  
+									GO_5=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_5;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 6:
+									GO_6=1;							 //open
+									delay_ms(20);  
+									GO_6=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_6;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 7:
+									GO_7=1;							 //open
+									delay_ms(20);  
+									GO_7=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_7;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 8:
+									GO_8=1;							 //open
+									delay_ms(20);  
+									GO_8=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_2;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 9:
+									GO_9=1;							 //open
+									delay_ms(20);  
+									GO_9=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_9;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 10:
+									GO_10=1;							 //open
+									delay_ms(20);  
+									GO_10=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_10;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 11:
+									GO_11=1;							 //open
+									delay_ms(20);  
+									GO_11=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_11;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 12:
+									GO_12=1;							 //open
+									delay_ms(20);  
+									GO_12=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_12;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 13:
+									GO_13=1;							 //open
+									delay_ms(20);  
+									GO_13=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_13;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 14:
+									GO_14=1;							 //open
+									delay_ms(20);  
+									GO_14=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_14;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 15:
+									GO_15=1;							 //open
+									delay_ms(20);  
+									GO_15=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_15;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 16:
+									GO_16=1;							 //open
+									delay_ms(20);  
+									GO_16=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_16;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 17:
+									GO_17=1;							 //open
+									delay_ms(20);  
+									GO_17=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_17;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 18:
+									GO_18=1;							 //open
+									delay_ms(20);  
+									GO_18=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_18;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 19:
+									GO_19=1;							 //open
+									delay_ms(20);  
+									GO_19=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_19;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 20:
+									GO_20=1;							 //open
+									delay_ms(20);  
+									GO_20=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_20;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 21:
+									GO_21=1;							 //open
+									delay_ms(20);  
+									GO_21=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_21;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 22:
+									GO_22=1;							 //open
+									delay_ms(20);  
+									GO_22=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_22;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 23:
+									GO_23=1;							 //open
+									delay_ms(20);  
+									GO_23=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_23;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								case 24:
+									GO_24=1;							 //open
+									delay_ms(20);  
+									GO_24=0;	 						 //close
+									delay_ms(20);  
+
+									gpio_level= GI_24;
+									SEGGER_RTT_printf(0, "%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
+									break;
+								
 								default:
 									break;
 
@@ -248,26 +446,115 @@ void data_parse()
 						{
 							if(0x00== m_data.lock_addr)//----4------
 							{
+								grp_level_1= GI_1 | (GI_2<<1) | (GI_3<<2) | (GI_4<<3) | (GI_5<<4) | (GI_6<<5) | (GI_7<<6) | (GI_8<<7);
+								grp_level_2= GI_9 | (GI_10<<1) | (GI_11<<2) | (GI_12<<3) | (GI_13<<4) | (GI_14<<5) | (GI_15<<6) | (GI_16<<7);
+								grp_level_3= GI_17 | (GI_18<<1) | (GI_19<<2) | (GI_20<<3) | (GI_21<<4) | (GI_22<<5) | (GI_23<<6) | (GI_24<<7);
+								SEGGER_RTT_printf(0, "grp_level_1 = %x\n",grp_level_1);
+								SEGGER_RTT_printf(0, "grp_level_2 = %x\n",grp_level_2);
+								SEGGER_RTT_printf(0, "grp_level_3 = %x\n",grp_level_3);
 								
+								memcpy(tx_Buffer,"star",4);
+								tx_Buffer[4]= m_data.opcode;
+								tx_Buffer[5]= m_data.board_addr;
+								tx_Buffer[6]= grp_level_1;
+								tx_Buffer[7]= grp_level_2;
+								tx_Buffer[8]= grp_level_3;
+
+
 								
+								bcc_temp = ComputXor(tx_Buffer+4,5);
+								tx_Buffer[9]= bcc_temp;
+								memcpy(tx_Buffer+10,"end",3);//now is 2?
 								
+								tx_Buffer[12]='\0';
+								
+								spear_uart_send_datas(tx_Buffer,12);
+								spear_rtt_send_datas(tx_Buffer,12);//to do 13?
+
+								SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
 								//spear_uart_send_datas
 							}
 							else//----3------
 							{
+								
 								switch(m_data.lock_addr)
 								{
-									case 0x01:
-										gpio_level= GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2);
-										
-										SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
+									case 1:
+										gpio_level= GI_1;
 										break;
-									case 0x08:
-										 GPIO_ResetBits(GPIOC,GPIO_Pin_2); 						 //输出高  on
+									case 2:
+										gpio_level= GI_2;
+										break;
+									case 3:
+										gpio_level= GI_3;
+										break;
+									case 4:
+										gpio_level= GI_4;
+										break;
+									case 5:
+										gpio_level= GI_5;
+										break;
+									case 6:
+										gpio_level= GI_6;
+									case 7:
+										gpio_level= GI_7;
+										break;
+									case 8:
+										gpio_level= GI_8;
+										break;
+									case 9:
+										gpio_level= GI_9;
+										break;
+									case 10:
+										gpio_level= GI_10;
+										break;
+									case 11:
+										gpio_level= GI_11;
+										break;
+									case 12:
+										gpio_level= GI_12;
+										break;
+									case 13:
+										gpio_level= GI_13;
+										break;
+									case 14:
+										gpio_level= GI_14;
+										break;
+									case 15:
+										gpio_level= GI_15;
+									case 16:
+										gpio_level= GI_16;
+										break;
+									case 17:
+										gpio_level= GI_17;
+										break;
+									case 18:
+										gpio_level= GI_18;
+										break;
+									case 19:
+										gpio_level= GI_19;
+										break;
+									case 20:
+										gpio_level= GI_20;
+										break;
+									case 21:
+										gpio_level= GI_21;
+										break;
+									case 22:
+										gpio_level= GI_22;
+										break;
+									case 23:
+										gpio_level= GI_23;
+										break;
+									case 24:
+										gpio_level= GI_24;
+										break;
+									
 									default:
 										break;
 
 								}
+								SEGGER_RTT_printf(0, "--%d:gpio_level = %x\n",m_data.lock_addr,gpio_level);
 								
 								memcpy(tx_Buffer,"star",4);
 								tx_Buffer[4]= m_data.opcode;
@@ -289,7 +576,7 @@ void data_parse()
 								spear_uart_send_datas(tx_Buffer,12);
 								spear_rtt_send_datas(tx_Buffer,12);
 
-								SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+								SEGGER_RTT_printf(0, "--ok,m_data.opcode=%02x\n",m_data.opcode);
 							}
 							
 						}
@@ -387,9 +674,56 @@ static void key1PressCallback(KEY_Status status)
     key1LongPressCount++;
   }
 }
-
+u8 key1_flag=0;
 u8 key2_flag=0;
+u8 key3_flag=0;
 u8 key4_flag=0;
+u8 key5_flag=0;
+u8 key6_flag=0;
+u8 key7_flag=0;
+u8 key8_flag=0;
+u8 key9_flag=0;
+u8 key10_flag=0;
+u8 key11_flag=0;
+u8 key12_flag=0;
+u8 key13_flag=0;
+u8 key14_flag=0;
+u8 key15_flag=0;
+u8 key16_flag=0;
+u8 key17_flag=0;
+u8 key18_flag=0;
+u8 key19_flag=0;
+u8 key20_flag=0;
+u8 key21_flag=0;
+u8 key22_flag=0;
+u8 key23_flag=0;
+u8 key24_flag=0;
+
+#define lock_1 1
+#define lock_2 2
+#define lock_3 3
+#define lock_4 4
+#define lock_5 5
+#define lock_6 6
+#define lock_7 7
+#define lock_8 8
+#define lock_9 9
+#define lock_10 10
+#define lock_11 11
+#define lock_12 12
+#define lock_13 13
+#define lock_14 14
+#define lock_15 15
+#define lock_16 16
+#define lock_17 17
+#define lock_18 18
+#define lock_19 19
+#define lock_20 20
+#define lock_21 21
+#define lock_22 22
+#define lock_23 23
+#define lock_24 24
+
 void key_fun(void)
 {
 	uint8_t tx_Buffer[256]={0};
@@ -397,7 +731,72 @@ void key_fun(void)
 	uint8_t board_addr;
 	board_addr= DSW_1 | (DSW_2<<1) | (DSW_3<<2) | (DSW_4<<3) | (DSW_5<<4) | (DSW_6<<5) | (DSW_7<<6) | (DSW_8<<7);
 	
-
+	//grp1
+	if((0==key1_flag)&&(GI_1==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_1==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key1_flag= %d\n",key1_flag); 
+			key1_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_1;//lock addr
+			
+			if(0x01 == GI_1)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key1_flag&&(GI_1==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_1==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key1_flag= %d\n",key1_flag); 
+			key1_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_1;//lock addr
+			
+			if(0x01 == GI_1)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp2-ok
 	if((0==key2_flag)&&(GI_2==0))
 	{
 		RS485_TX_EN();
@@ -411,7 +810,7 @@ void key_fun(void)
 			memcpy(tx_Buffer,"star",4);
 			tx_Buffer[4]= 0x60;
 			tx_Buffer[5]= board_addr;//board addr
-			tx_Buffer[6]= 2;//lock addr
+			tx_Buffer[6]= lock_2;//lock addr
 			
 			if(0x01 == GI_2)
 				tx_Buffer[7]= 0x11;//lock state todo open
@@ -435,14 +834,14 @@ void key_fun(void)
 		delay_ms(10);//去抖动 
 		if(GI_2==1)
 		{
-			SEGGER_RTT_printf(0, "gpio_level = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
 			SEGGER_RTT_printf(0, "open-key2_flag= %d\n",key2_flag); 
 			key2_flag=0;
 			
 			memcpy(tx_Buffer,"star",4);
 			tx_Buffer[4]= 0x60;
 			tx_Buffer[5]= board_addr;//board addr
-			tx_Buffer[6]= 2;//lock addr
+			tx_Buffer[6]= lock_2;//lock addr
 			
 			if(0x01 == GI_2)
 				tx_Buffer[7]= 0x11;//lock state todo open
@@ -463,24 +862,1461 @@ void key_fun(void)
 	}
 	
 	
+	//grp3
+	if((0==key3_flag)&&(GI_3==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_3==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key3_flag= %d\n",key3_flag); 
+			key3_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_3;//lock addr
+			
+			if(0x01 == GI_3)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key3_flag&&(GI_3==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_3==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key3_flag= %d\n",key3_flag); 
+			key3_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_3;//lock addr
+			
+			if(0x01 == GI_3)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	
+		
+	//grp4
 	if((0==key4_flag)&&(GI_4==0))
 	{
+		RS485_TX_EN();
 		delay_ms(10);//去抖动 
 		if(GI_4==0)
 		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
 			SEGGER_RTT_printf(0, "close-key4_flag= %d\n",key4_flag); 
 			key4_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_4;//lock addr
+			
+			if(0x01 == GI_4)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
 		}
+		RS485_RX_EN();
 	}
 	if(key4_flag&&(GI_4==1))//default
 	{
+		RS485_TX_EN();
 		delay_ms(10);//去抖动 
 		if(GI_4==1)
 		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
 			SEGGER_RTT_printf(0, "open-key4_flag= %d\n",key4_flag); 
 			key4_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_4;//lock addr
+			
+			if(0x01 == GI_4)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
 		}
+		RS485_RX_EN();
 	}
+	
+	//grp5
+if((0==key5_flag)&&(GI_5==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_5==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key5_flag= %d\n",key5_flag); 
+			key5_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_5;//lock addr
+			
+			if(0x01 == GI_5)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key5_flag&&(GI_5==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_5==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key5_flag= %d\n",key5_flag); 
+			key5_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_5;//lock addr
+			
+			if(0x01 == GI_5)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp6
+if((0==key6_flag)&&(GI_6==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_6==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key6_flag= %d\n",key6_flag); 
+			key6_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_6;//lock addr
+			
+			if(0x01 == GI_6)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key6_flag&&(GI_6==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_6==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key6_flag= %d\n",key6_flag); 
+			key6_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_6;//lock addr
+			
+			if(0x01 == GI_6)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp7
+if((0==key7_flag)&&(GI_7==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_7==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key7_flag= %d\n",key7_flag); 
+			key7_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_7;//lock addr
+			
+			if(0x01 == GI_7)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key7_flag&&(GI_7==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_7==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key7_flag= %d\n",key7_flag); 
+			key7_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_7;//lock addr
+			
+			if(0x01 == GI_7)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp8
+if((0==key8_flag)&&(GI_8==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_8==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key8_flag= %d\n",key8_flag); 
+			key8_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_8;//lock addr
+			
+			if(0x01 == GI_8)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key8_flag&&(GI_8==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_8==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key8_flag= %d\n",key8_flag); 
+			key8_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_8;//lock addr
+			
+			if(0x01 == GI_8)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp9
+	if((0==key9_flag)&&(GI_9==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_9==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key9_flag= %d\n",key9_flag); 
+			key9_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_9;//lock addr
+			
+			if(0x01 == GI_9)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key9_flag&&(GI_9==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_9==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key9_flag= %d\n",key9_flag); 
+			key9_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_9;//lock addr
+			
+			if(0x01 == GI_9)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp10
+	if((0==key10_flag)&&(GI_10==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_10==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key10_flag= %d\n",key10_flag); 
+			key10_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_10;//lock addr
+			
+			if(0x01 == GI_10)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key10_flag&&(GI_10==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_10==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key10_flag= %d\n",key10_flag); 
+			key10_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_10;//lock addr
+			
+			if(0x01 == GI_10)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp11
+	if((0==key11_flag)&&(GI_11==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_11==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key11_flag= %d\n",key11_flag); 
+			key11_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_11;//lock addr
+			
+			if(0x01 == GI_11)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key11_flag&&(GI_11==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_11==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key11_flag= %d\n",key11_flag); 
+			key11_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_11;//lock addr
+			
+			if(0x01 == GI_11)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp12
+if((0==key12_flag)&&(GI_12==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_12==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key12_flag= %d\n",key12_flag); 
+			key12_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_12;//lock addr
+			
+			if(0x01 == GI_12)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key12_flag&&(GI_12==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_12==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key12_flag= %d\n",key12_flag); 
+			key12_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_12;//lock addr
+			
+			if(0x01 == GI_12)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp13
+	if((0==key13_flag)&&(GI_13==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_13==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key13_flag= %d\n",key13_flag); 
+			key13_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_13;//lock addr
+			
+			if(0x01 == GI_13)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key13_flag&&(GI_13==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_13==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key13_flag= %d\n",key13_flag); 
+			key13_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_13;//lock addr
+			
+			if(0x01 == GI_13)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp14
+	if((0==key14_flag)&&(GI_14==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_14==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key14_flag= %d\n",key14_flag); 
+			key14_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_14;//lock addr
+			
+			if(0x01 == GI_14)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key14_flag&&(GI_14==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_14==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key14_flag= %d\n",key14_flag); 
+			key14_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_14;//lock addr
+			
+			if(0x01 == GI_14)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp15
+	if((0==key15_flag)&&(GI_15==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_15==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key15_flag= %d\n",key15_flag); 
+			key15_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_15;//lock addr
+			
+			if(0x01 == GI_15)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key15_flag&&(GI_15==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_15==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key15_flag= %d\n",key15_flag); 
+			key15_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_15;//lock addr
+			
+			if(0x01 == GI_15)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp16
+	if((0==key16_flag)&&(GI_16==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_16==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key16_flag= %d\n",key16_flag); 
+			key16_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_16;//lock addr
+			
+			if(0x01 == GI_16)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key16_flag&&(GI_16==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_16==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key16_flag= %d\n",key16_flag); 
+			key16_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_16;//lock addr
+			
+			if(0x01 == GI_16)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp17
+	if((0==key17_flag)&&(GI_17==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_17==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key17_flag= %d\n",key17_flag); 
+			key17_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_17;//lock addr
+			
+			if(0x01 == GI_17)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key17_flag&&(GI_17==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_17==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key17_flag= %d\n",key17_flag); 
+			key17_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_17;//lock addr
+			
+			if(0x01 == GI_17)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp18
+	if((0==key18_flag)&&(GI_18==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_18==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key18_flag= %d\n",key18_flag); 
+			key18_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_18;//lock addr
+			
+			if(0x01 == GI_18)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key18_flag&&(GI_18==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_18==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key18_flag= %d\n",key18_flag); 
+			key18_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_18;//lock addr
+			
+			if(0x01 == GI_18)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp19
+	if((0==key19_flag)&&(GI_19==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_19==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key19_flag= %d\n",key19_flag); 
+			key19_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_19;//lock addr
+			
+			if(0x01 == GI_19)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key19_flag&&(GI_19==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_19==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key19_flag= %d\n",key19_flag); 
+			key19_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_19;//lock addr
+			
+			if(0x01 == GI_19)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp20
+	if((0==key20_flag)&&(GI_20==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_20==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key20_flag= %d\n",key20_flag); 
+			key20_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_20;//lock addr
+			
+			if(0x01 == GI_20)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key20_flag&&(GI_20==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_20==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key20_flag= %d\n",key20_flag); 
+			key20_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_20;//lock addr
+			
+			if(0x01 == GI_20)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp21
+	if((0==key21_flag)&&(GI_21==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_21==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key21_flag= %d\n",key21_flag); 
+			key21_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_21;//lock addr
+			
+			if(0x01 == GI_21)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key21_flag&&(GI_21==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_21==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key21_flag= %d\n",key21_flag); 
+			key21_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_21;//lock addr
+			
+			if(0x01 == GI_21)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp22
+	if((0==key22_flag)&&(GI_22==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_22==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key22_flag= %d\n",key22_flag); 
+			key22_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_22;//lock addr
+			
+			if(0x01 == GI_22)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key22_flag&&(GI_22==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_22==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key22_flag= %d\n",key22_flag); 
+			key22_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_22;//lock addr
+			
+			if(0x01 == GI_22)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp23
+	if((0==key23_flag)&&(GI_23==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_23==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key23_flag= %d\n",key23_flag); 
+			key23_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_23;//lock addr
+			
+			if(0x01 == GI_23)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key23_flag&&(GI_23==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_23==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key23_flag= %d\n",key23_flag); 
+			key23_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_23;//lock addr
+			
+			if(0x01 == GI_23)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	//grp24
+	if((0==key24_flag)&&(GI_24==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_24==0)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key24_flag= %d\n",key24_flag); 
+			key24_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_24;//lock addr
+			
+			if(0x01 == GI_24)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+		}
+		RS485_RX_EN();
+	}
+	if(key24_flag&&(GI_24==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//去抖动 
+		if(GI_24==1)
+		{
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key24_flag= %d\n",key24_flag); 
+			key24_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= lock_24;//lock addr
+			
+			if(0x01 == GI_24)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
+		}
+		RS485_RX_EN();
+	}
+	
+	
+	
+	
+//	
+//	
+//	if((0==key4_flag)&&(GI_4==0))
+//	{
+//		delay_ms(10);//去抖动 
+//		if(GI_4==0)
+//		{
+//			SEGGER_RTT_printf(0, "close-key4_flag= %d\n",key4_flag); 
+//			key4_flag=1;
+//		}
+//	}
+//	if(key4_flag&&(GI_4==1))//default
+//	{
+//		delay_ms(10);//去抖动 
+//		if(GI_4==1)
+//		{
+//			SEGGER_RTT_printf(0, "open-key4_flag= %d\n",key4_flag); 
+//			key4_flag=0;
+//		}
+//	}
 
 }
 
