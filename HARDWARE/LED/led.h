@@ -33,6 +33,20 @@ static void RS485_delay(__IO u32 nCount)
 #define GI_4  GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_2)//读取按键0
 #define GO_4 PAout(3)	//
 
+
+
+
+//bo ma kai guan
+#define DSW_1 GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_10)
+#define DSW_2 GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_11)
+#define DSW_3 GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_12)
+#define DSW_4 GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_0)
+#define DSW_5 GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_4)
+#define DSW_6 GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_3)
+#define DSW_7 GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_2)
+#define DSW_8 GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_1)
+
+
 /*控制收发引脚*/
 //进入接收模式,必须要有延时等待485处理完数据
 #define RS485_RX_EN()			RS485_delay(1000); GPIO_ResetBits(GPIOA,GPIO_Pin_11);  RS485_delay(1000);

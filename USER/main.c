@@ -152,8 +152,9 @@ void data_parse()
 {
 	uint8_t bcc_temp;
 	uint8_t tx_Buffer[256]={0};        //?????
-	uint8_t length = 0;             //??
+	//uint8_t length = 0;             //??
 	uint8_t gpio_level;
+	uint8_t board_addr;
 	
 	uint8_t Uart1_Buffer_T[256]={0};        //?????
 	uint8_t Uart1_Rx_T = 0;             //??
@@ -162,101 +163,55 @@ void data_parse()
 	Uart1_Rx_T = Uart1_Rx - 8;
 	SEGGER_RTT_printf(0, "-Uart1_Rx_T = %d\n",Uart1_Rx_T);      //RTT¥Ú”
 	memcpy(Uart1_Buffer_T,Uart1_Buffer+4,Uart1_Rx_T);
-	if(5==Uart1_Rx_T)
+	
+
+	board_addr= DSW_1 | (DSW_2<<1) | (DSW_3<<2) | (DSW_4<<3) | (DSW_5<<4) | (DSW_6<<5) | (DSW_7<<6) | (DSW_8<<7);
+	
+	if(board_addr == Uart1_Buffer_T[1])
 	{
-		m_data.opcode = Uart1_Buffer_T[0];
-		m_data.board_addr = Uart1_Buffer_T[1];
-		m_data.lock_addr = Uart1_Buffer_T[2];//
-		m_data.gu_ding = Uart1_Buffer_T[3];//
-		m_data.bcc = Uart1_Buffer_T[4];
-
-		bcc_temp = ComputXor(Uart1_Buffer_T,4);
-		SEGGER_RTT_printf(0, "bcc_temp = %x\n",bcc_temp);
-		if(bcc_temp == m_data.bcc)
+		if(5==Uart1_Rx_T)
 		{
-			switch(m_data.opcode)
+			m_data.opcode = Uart1_Buffer_T[0];
+			m_data.board_addr = Uart1_Buffer_T[1];// to do
+			m_data.lock_addr = Uart1_Buffer_T[2];//
+			m_data.gu_ding = Uart1_Buffer_T[3];//
+			m_data.bcc = Uart1_Buffer_T[4];
+
+			bcc_temp = ComputXor(Uart1_Buffer_T,4);
+			SEGGER_RTT_printf(0, "bcc_temp = %x\n",bcc_temp);
+			if(bcc_temp == m_data.bcc)
 			{
-				case 0x8A:
-					//----1------
-					if(m_data.gu_ding  == 0x11)//process
-					{
-						switch(m_data.lock_addr)
-						{
-							case 1:
-								GO_1=1; 					//open
-								delay_ms(20);  
-								GO_1=0;						//close
-								delay_ms(20);  
-
-							
-								gpio_level= GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_0);
-								
-								SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
-								break;
-							
-							case 2:
-								GO_2=1;							 //open
-								delay_ms(20);  
-								GO_2=0;	 						 //close
-								delay_ms(20);  
-
-							
-								gpio_level= GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2);
-								
-								SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
-								break;
-							default:
-								break;
-
-						}
-						
-						memcpy(tx_Buffer,"star",4);
-						tx_Buffer[4]= m_data.opcode;
-						tx_Buffer[5]= m_data.board_addr;
-						tx_Buffer[6]= m_data.lock_addr;
-						
-						if(0x01 == gpio_level)
-							tx_Buffer[7]= 0x11;//lock state todo open
-						else
-							tx_Buffer[7]= 0x00;//lock state todo close
-						
-						bcc_temp = ComputXor(tx_Buffer+4,4);
-						tx_Buffer[8]= bcc_temp;
-						memcpy(tx_Buffer+9,"end",3);
-						
-						tx_Buffer[12]='\0';
-						
-						spear_uart_send_datas(tx_Buffer,12);
-						spear_rtt_send_datas(tx_Buffer,12);
-
-						SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
-					}
-					else
-					{
-						SEGGER_RTT_printf(0, "error-2,m_data.opcode=%02x\n",m_data.opcode);
-					}
-					break;
-				case 0x80:
-					if(m_data.gu_ding  == 0x33)//process
-					{
-						if(0x00== m_data.lock_addr)//----4------
-						{
-							
-							
-							
-							//spear_uart_send_datas
-						}
-						else//----3------
+				switch(m_data.opcode)
+				{
+					case 0x8A:
+						//----1------
+						if(m_data.gu_ding  == 0x11)//process
 						{
 							switch(m_data.lock_addr)
 							{
-								case 0x01:
-									gpio_level= GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2);
+								case 1:
+									GO_1=1; 					//open
+									delay_ms(20);  
+									GO_1=0;						//close
+									delay_ms(20);  
+
+								
+									gpio_level= GI_1;
 									
 									SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
 									break;
-								case 0x08:
-									 GPIO_ResetBits(GPIOC,GPIO_Pin_2); 						 // ‰≥ˆ∏ﬂ  on
+								
+								case 2:
+									GO_2=1;							 //open
+									delay_ms(20);  
+									GO_2=0;	 						 //close
+									delay_ms(20);  
+
+								
+									gpio_level= GI_2;
+									
+									SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
+									break;
 								default:
 									break;
 
@@ -271,7 +226,6 @@ void data_parse()
 								tx_Buffer[7]= 0x11;//lock state todo open
 							else
 								tx_Buffer[7]= 0x00;//lock state todo close
-
 							
 							bcc_temp = ComputXor(tx_Buffer+4,4);
 							tx_Buffer[8]= bcc_temp;
@@ -284,69 +238,123 @@ void data_parse()
 
 							SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
 						}
+						else
+						{
+							SEGGER_RTT_printf(0, "error-2,m_data.opcode=%02x\n",m_data.opcode);
+						}
+						break;
+					case 0x80:
+						if(m_data.gu_ding  == 0x33)//process
+						{
+							if(0x00== m_data.lock_addr)//----4------
+							{
+								
+								
+								
+								//spear_uart_send_datas
+							}
+							else//----3------
+							{
+								switch(m_data.lock_addr)
+								{
+									case 0x01:
+										gpio_level= GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_2);
+										
+										SEGGER_RTT_printf(0, "gpio_level = %x\n",gpio_level);
+										break;
+									case 0x08:
+										 GPIO_ResetBits(GPIOC,GPIO_Pin_2); 						 // ‰≥ˆ∏ﬂ  on
+									default:
+										break;
+
+								}
+								
+								memcpy(tx_Buffer,"star",4);
+								tx_Buffer[4]= m_data.opcode;
+								tx_Buffer[5]= m_data.board_addr;
+								tx_Buffer[6]= m_data.lock_addr;
+								
+								if(0x01 == gpio_level)
+									tx_Buffer[7]= 0x11;//lock state todo open
+								else
+									tx_Buffer[7]= 0x00;//lock state todo close
+
+								
+								bcc_temp = ComputXor(tx_Buffer+4,4);
+								tx_Buffer[8]= bcc_temp;
+								memcpy(tx_Buffer+9,"end",3);
+								
+								tx_Buffer[12]='\0';
+								
+								spear_uart_send_datas(tx_Buffer,12);
+								spear_rtt_send_datas(tx_Buffer,12);
+
+								SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+							}
+							
+						}
+						else
+						{
+							SEGGER_RTT_printf(0, "error-2,m_data.opcode=%02x\n",m_data.opcode);
+						}
+						break;
 						
-					}
-					else
-					{
-						SEGGER_RTT_printf(0, "error-2,m_data.opcode=%02x\n",m_data.opcode);
-					}
-					break;
-					
 
-				default:
-					break;
+					default:
+						break;
+				}
+				
+				SEGGER_RTT_printf(0, "m_data.bcc = %x\n",m_data.bcc);
 			}
-			
-			SEGGER_RTT_printf(0, "m_data.bcc = %x\n",m_data.bcc);
-		}
-		else
-		{
-			SEGGER_RTT_printf(0, "error-1-m_data.bcc = %x\n",m_data.bcc);
-		}
-		
-	}
-	else if(3==Uart1_Rx_T)
-	{
-		m_data.opcode = Uart1_Buffer_T[0];
-		m_data.board_addr = Uart1_Buffer_T[1];
-
-		m_data.bcc = Uart1_Buffer_T[2];
-		
-		bcc_temp = ComputXor(Uart1_Buffer_T,2);
-		SEGGER_RTT_printf(0, "bcc_temp = %x\n",bcc_temp);
-		if(bcc_temp == m_data.bcc)
-		{
-			switch(m_data.opcode)
+			else
 			{
-				case 0x90://--------2---------
-					SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
-					break;
-				case 0x91://--------2.1---------
-					SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
-					break;
-				case 0x92://--------2.2---------
-					SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
-					break;
-				case 0x93://--------2.3---------
-					SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
-					break;
-				case 0x70://--------2.4---------
-					SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
-					break;
-				case 0x71://--------2.5---------
-					SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
-					break;					
-				default:
-					break;
+				SEGGER_RTT_printf(0, "error-1-m_data.bcc = %x\n",m_data.bcc);
 			}
 			
-			SEGGER_RTT_printf(0, "m_data.bcc = %x\n",m_data.bcc);
 		}
-		else
+		else if(3==Uart1_Rx_T)
 		{
-			SEGGER_RTT_printf(0, "error-1-m_data.bcc = %x\n",m_data.bcc);
+			m_data.opcode = Uart1_Buffer_T[0];
+			m_data.board_addr = Uart1_Buffer_T[1];
+
+			m_data.bcc = Uart1_Buffer_T[2];
+			
+			bcc_temp = ComputXor(Uart1_Buffer_T,2);
+			SEGGER_RTT_printf(0, "bcc_temp = %x\n",bcc_temp);
+			if(bcc_temp == m_data.bcc)
+			{
+				switch(m_data.opcode)
+				{
+					case 0x90://--------2---------
+						SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						break;
+					case 0x91://--------2.1---------
+						SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						break;
+					case 0x92://--------2.2---------
+						SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						break;
+					case 0x93://--------2.3---------
+						SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						break;
+					case 0x70://--------2.4---------
+						SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						break;
+					case 0x71://--------2.5---------
+						SEGGER_RTT_printf(0, "ok,m_data.opcode=%02x\n",m_data.opcode);
+						break;					
+					default:
+						break;
+				}
+				
+				SEGGER_RTT_printf(0, "m_data.bcc = %x\n",m_data.bcc);
+			}
+			else
+			{
+				SEGGER_RTT_printf(0, "error-1-m_data.bcc = %x\n",m_data.bcc);
+			}
+		
 		}
-	
 	}
 
 }
@@ -384,44 +392,95 @@ u8 key2_flag=0;
 u8 key4_flag=0;
 void key_fun(void)
 {
-		if((0==key2_flag)&&(GI_2==0))
+	uint8_t tx_Buffer[256]={0};
+	uint8_t bcc_temp;
+	uint8_t board_addr;
+	board_addr= DSW_1 | (DSW_2<<1) | (DSW_3<<2) | (DSW_4<<3) | (DSW_5<<4) | (DSW_6<<5) | (DSW_7<<6) | (DSW_8<<7);
+	
+
+	if((0==key2_flag)&&(GI_2==0))
+	{
+		RS485_TX_EN();
+		delay_ms(10);//»•∂∂∂Ø 
+		if(GI_2==0)
 		{
-			delay_ms(10);//»•∂∂∂Ø 
-			if(GI_2==0)
-			{
-				SEGGER_RTT_printf(0, "close-key2_flag= %d\n",key2_flag); 
-				key2_flag=1;
-			}
+			SEGGER_RTT_printf(0, "board_addr = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "close-key2_flag= %d\n",key2_flag); 
+			key2_flag=1;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= 2;//lock addr
+			
+			if(0x01 == GI_2)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
 		}
-		if(key2_flag&&(GI_2==1))//default
+		RS485_RX_EN();
+	}
+	if(key2_flag&&(GI_2==1))//default
+	{
+		RS485_TX_EN();
+		delay_ms(10);//»•∂∂∂Ø 
+		if(GI_2==1)
 		{
-			delay_ms(10);//»•∂∂∂Ø 
-			if(GI_2==1)
-			{
-				SEGGER_RTT_printf(0, "open-key2_flag= %d\n",key2_flag); 
-				key2_flag=0;
-			}
+			SEGGER_RTT_printf(0, "gpio_level = %02x\n",board_addr);//bo ma
+			SEGGER_RTT_printf(0, "open-key2_flag= %d\n",key2_flag); 
+			key2_flag=0;
+			
+			memcpy(tx_Buffer,"star",4);
+			tx_Buffer[4]= 0x60;
+			tx_Buffer[5]= board_addr;//board addr
+			tx_Buffer[6]= 2;//lock addr
+			
+			if(0x01 == GI_2)
+				tx_Buffer[7]= 0x11;//lock state todo open
+			else
+				tx_Buffer[7]= 0x00;//lock state todo close
+			
+			bcc_temp = ComputXor(tx_Buffer+4,4);
+			tx_Buffer[8]= bcc_temp;
+			memcpy(tx_Buffer+9,"end",3);
+			
+			tx_Buffer[12]='\0';
+			
+			spear_uart_send_datas(tx_Buffer,12);
+			spear_rtt_send_datas(tx_Buffer,12);
+			
 		}
-		
-		
-		if((0==key4_flag)&&(GI_4==0))
+		RS485_RX_EN();
+	}
+	
+	
+	if((0==key4_flag)&&(GI_4==0))
+	{
+		delay_ms(10);//»•∂∂∂Ø 
+		if(GI_4==0)
 		{
-			delay_ms(10);//»•∂∂∂Ø 
-			if(GI_4==0)
-			{
-				SEGGER_RTT_printf(0, "close-key4_flag= %d\n",key4_flag); 
-				key4_flag=1;
-			}
+			SEGGER_RTT_printf(0, "close-key4_flag= %d\n",key4_flag); 
+			key4_flag=1;
 		}
-		if(key4_flag&&(GI_4==1))//default
+	}
+	if(key4_flag&&(GI_4==1))//default
+	{
+		delay_ms(10);//»•∂∂∂Ø 
+		if(GI_4==1)
 		{
-			delay_ms(10);//»•∂∂∂Ø 
-			if(GI_4==1)
-			{
-				SEGGER_RTT_printf(0, "open-key4_flag= %d\n",key4_flag); 
-				key4_flag=0;
-			}
+			SEGGER_RTT_printf(0, "open-key4_flag= %d\n",key4_flag); 
+			key4_flag=0;
 		}
+	}
 
 }
 
