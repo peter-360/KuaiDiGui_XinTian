@@ -323,164 +323,164 @@ void TIM4_IRQHandler(void)   //TIM4ÖÐ¶Ï
 					
 						break;
 			
+		
+					case 3:
+						GO_3=1;							 //open
+						delay_ms(20);  
+						GO_3=0;	 						 //close
+						delay_ms(20);  
+
+						break;
+					case 4:
+						GO_4=1;							 //open
+						delay_ms(20);  
+						GO_4=0;	 						 //close
+						delay_ms(20);  
+
+
+						break;
+					case 5:
+						GO_5=1;							 //open
+						delay_ms(20);  
+						GO_5=0;	 						 //close
+						delay_ms(20);  
+
+						break;
+					case 6:
+						GO_6=1;							 //open
+						delay_ms(20);  
+						GO_6=0;	 						 //close
+						delay_ms(20);  
+
+						break;
+					case 7:
+						GO_7=1;							 //open
+						delay_ms(20);  
+						GO_7=0;	 						 //close
+						delay_ms(20);  
+
+
+						break;
+					case 8:
+						GO_8=1;							 //open
+						delay_ms(20);  
+						GO_8=0;	 						 //close
+						delay_ms(20);  
+
+						break;
+					case 9:
+						GO_9=1;							 //open
+						delay_ms(20);  
+						GO_9=0;	 						 //close
+						delay_ms(20);  
+
+						break;
+					case 10:
+						GO_10=1;							 //open
+						delay_ms(20);  
+						GO_10=0;	 						 //close
+						delay_ms(20);  
+
+
+						break;
+					case 11:
+						GO_11=1;							 //open
+						delay_ms(20);  
+						GO_11=0;	 						 //close
+						delay_ms(20);  
+
+						break;
+					case 12:
+						GO_12=1;							 //open
+						delay_ms(20);  
+						GO_12=0;	 						 //close
+						delay_ms(20);  
 					
-								case 3:
-									GO_3=1;							 //open
-									delay_ms(20);  
-									GO_3=0;	 						 //close
-									delay_ms(20);  
+						break;
+					case 13:
+						GO_13=1;							 //open
+						delay_ms(20);  
+						GO_13=0;	 						 //close
+						delay_ms(20);  
 
-									break;
-								case 4:
-									GO_4=1;							 //open
-									delay_ms(20);  
-									GO_4=0;	 						 //close
-									delay_ms(20);  
+						break;
+					case 14:
+						GO_14=1;							 //open
+						delay_ms(20);  
+						GO_14=0;	 						 //close
+						delay_ms(20);  
 
+						break;
+					case 15:
+						GO_15=1;							 //open
+						delay_ms(20);  
+						GO_15=0;	 						 //close
+						delay_ms(20);  
 
-									break;
-								case 5:
-									GO_5=1;							 //open
-									delay_ms(20);  
-									GO_5=0;	 						 //close
-									delay_ms(20);  
+						break;
+					case 16:
+						GO_16=1;							 //open
+						delay_ms(20);  
+						GO_16=0;	 						 //close
+						delay_ms(20);  
 
-									break;
-								case 6:
-									GO_6=1;							 //open
-									delay_ms(20);  
-									GO_6=0;	 						 //close
-									delay_ms(20);  
+						break;
+					case 17:
+						GO_17=1;							 //open
+						delay_ms(20);  
+						GO_17=0;	 						 //close
+						delay_ms(20);  
 
-									break;
-								case 7:
-									GO_7=1;							 //open
-									delay_ms(20);  
-									GO_7=0;	 						 //close
-									delay_ms(20);  
+						break;
+					case 18:
+						GO_18=1;							 //open
+						delay_ms(20);  
+						GO_18=0;	 						 //close
+						delay_ms(20);  
 
+						break;
+					case 19:
+						GO_19=1;							 //open
+						delay_ms(20);  
+						GO_19=0;	 						 //close
+						delay_ms(20);  
+					
+						break;
+					case 20:
+						GO_20=1;							 //open
+						delay_ms(20);  
+						GO_20=0;	 						 //close
+						delay_ms(20);  
 
-									break;
-								case 8:
-									GO_8=1;							 //open
-									delay_ms(20);  
-									GO_8=0;	 						 //close
-									delay_ms(20);  
+						break;
+					case 21:
+						GO_21=1;							 //open
+						delay_ms(20);  
+						GO_21=0;	 						 //close
+						delay_ms(20);  
 
-									break;
-								case 9:
-									GO_9=1;							 //open
-									delay_ms(20);  
-									GO_9=0;	 						 //close
-									delay_ms(20);  
+						break;
+					case 22:
+						GO_22=1;							 //open
+						delay_ms(20);  
+						GO_22=0;	 						 //close
+						delay_ms(20);  
 
-									break;
-								case 10:
-									GO_10=1;							 //open
-									delay_ms(20);  
-									GO_10=0;	 						 //close
-									delay_ms(20);  
+						break;
+					case 23:
+						GO_23=1;							 //open
+						delay_ms(20);  
+						GO_23=0;	 						 //close
+						delay_ms(20);  
 
+						break;
+					case 24:
+						GO_24=1;							 //open
+						delay_ms(20);  
+						GO_24=0;	 						 //close
+						delay_ms(20);  
 
-									break;
-								case 11:
-									GO_11=1;							 //open
-									delay_ms(20);  
-									GO_11=0;	 						 //close
-									delay_ms(20);  
-
-									break;
-								case 12:
-									GO_12=1;							 //open
-									delay_ms(20);  
-									GO_12=0;	 						 //close
-									delay_ms(20);  
-								
-									break;
-								case 13:
-									GO_13=1;							 //open
-									delay_ms(20);  
-									GO_13=0;	 						 //close
-									delay_ms(20);  
-
-									break;
-								case 14:
-									GO_14=1;							 //open
-									delay_ms(20);  
-									GO_14=0;	 						 //close
-									delay_ms(20);  
-
-									break;
-								case 15:
-									GO_15=1;							 //open
-									delay_ms(20);  
-									GO_15=0;	 						 //close
-									delay_ms(20);  
-
-									break;
-								case 16:
-									GO_16=1;							 //open
-									delay_ms(20);  
-									GO_16=0;	 						 //close
-									delay_ms(20);  
-
-									break;
-								case 17:
-									GO_17=1;							 //open
-									delay_ms(20);  
-									GO_17=0;	 						 //close
-									delay_ms(20);  
-
-									break;
-								case 18:
-									GO_18=1;							 //open
-									delay_ms(20);  
-									GO_18=0;	 						 //close
-									delay_ms(20);  
-
-									break;
-								case 19:
-									GO_19=1;							 //open
-									delay_ms(20);  
-									GO_19=0;	 						 //close
-									delay_ms(20);  
-								
-									break;
-								case 20:
-									GO_20=1;							 //open
-									delay_ms(20);  
-									GO_20=0;	 						 //close
-									delay_ms(20);  
-
-									break;
-								case 21:
-									GO_21=1;							 //open
-									delay_ms(20);  
-									GO_21=0;	 						 //close
-									delay_ms(20);  
-
-									break;
-								case 22:
-									GO_22=1;							 //open
-									delay_ms(20);  
-									GO_22=0;	 						 //close
-									delay_ms(20);  
-
-									break;
-								case 23:
-									GO_23=1;							 //open
-									delay_ms(20);  
-									GO_23=0;	 						 //close
-									delay_ms(20);  
-
-									break;
-								case 24:
-									GO_24=1;							 //open
-									delay_ms(20);  
-									GO_24=0;	 						 //close
-									delay_ms(20);  
-
-									break;
+						break;
 					
 					
 					default:
