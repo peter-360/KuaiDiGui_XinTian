@@ -310,175 +310,175 @@ void TIM4_IRQHandler(void)   //TIM4中断
 					SEGGER_RTT_printf(0, "lock_channel=%d\n",lock_channel);
 					case 1://power on
 						GO_1=1; 					//open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_1=0;						//close
-						delay_ms(20);  
+						
 					
 						break;
 					case 2://
 						GO_2=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_2=0;	 						 //close
-						delay_ms(20);  
+						
 					
 						break;
 			
 		
 					case 3:
 						GO_3=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_3=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 4:
 						GO_4=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_4=0;	 						 //close
-						delay_ms(20);  
+						
 
 
 						break;
 					case 5:
 						GO_5=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_5=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 6:
 						GO_6=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_6=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 7:
 						GO_7=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_7=0;	 						 //close
-						delay_ms(20);  
+						
 
 
 						break;
 					case 8:
 						GO_8=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_8=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 9:
 						GO_9=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_9=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 10:
 						GO_10=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_10=0;	 						 //close
-						delay_ms(20);  
+						
 
 
 						break;
 					case 11:
 						GO_11=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_11=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 12:
 						GO_12=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_12=0;	 						 //close
-						delay_ms(20);  
+						
 					
 						break;
 					case 13:
 						GO_13=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_13=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 14:
 						GO_14=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_14=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 15:
 						GO_15=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_15=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 16:
 						GO_16=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_16=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 17:
 						GO_17=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_17=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 18:
 						GO_18=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_18=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 19:
 						GO_19=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_19=0;	 						 //close
-						delay_ms(20);  
+						
 					
 						break;
 					case 20:
 						GO_20=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_20=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 21:
 						GO_21=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_21=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 22:
 						GO_22=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_22=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 23:
 						GO_23=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_23=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					case 24:
 						GO_24=1;							 //open
-						delay_ms(20);  
+						delay_ms(100);  
 						GO_24=0;	 						 //close
-						delay_ms(20);  
+						
 
 						break;
 					
@@ -486,6 +486,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 					default:
 						break;
 				}
+				lock_all_off();
 				TIM4_Set(1);			//TIM 
 			}
 			else
@@ -513,7 +514,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_1=1;	 						 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_1=0; 						 //输出高  on
 						}
 					
@@ -524,7 +525,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_2=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_2=0;	 						 //输出高  on
 						}							
 						break;
@@ -535,7 +536,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_3=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_3=0;	 						 //输出高  on
 						}							
 						break;
@@ -546,7 +547,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_4=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_4=0;	 						 //输出高  on
 						}							
 						break;
@@ -557,7 +558,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_5=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_5=0;	 						 //输出高  on
 						}							
 						break;
@@ -568,7 +569,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_6=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_6=0;	 						 //输出高  on
 						}							
 						break;	
@@ -579,7 +580,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_7=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_7=0;	 						 //输出高  on
 						}							
 						break;
@@ -590,7 +591,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_8=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_8=0;	 						 //输出高  on
 						}							
 						break;
@@ -601,7 +602,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_9=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_9=0;	 						 //输出高  on
 						}							
 						break;	
@@ -612,7 +613,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_10=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_10=0;	 						 //输出高  on
 						}							
 						break;			
@@ -624,7 +625,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_11=1;	 						 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_11=0; 						 //输出高  on
 						}
 					
@@ -635,7 +636,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_12=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_12=0;	 						 //输出高  on
 						}							
 						break;
@@ -646,7 +647,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_13=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_13=0;	 						 //输出高  on
 						}							
 						break;
@@ -657,7 +658,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_14=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_14=0;	 						 //输出高  on
 						}							
 						break;
@@ -668,7 +669,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_15=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_15=0;	 						 //输出高  on
 						}							
 						break;
@@ -679,7 +680,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_16=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_16=0;	 						 //输出高  on
 						}							
 						break;	
@@ -690,7 +691,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_17=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_17=0;	 						 //输出高  on
 						}							
 						break;
@@ -701,7 +702,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_18=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_18=0;	 						 //输出高  on
 						}							
 						break;
@@ -712,7 +713,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_19=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_19=0;	 						 //输出高  on
 						}							
 						break;	
@@ -723,7 +724,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_20=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_20=0;	 						 //输出高  on
 						}							
 						break;
@@ -736,7 +737,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_21=1;	 						 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_21=0; 						 //输出高  on
 						}
 					
@@ -747,7 +748,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_22=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_22=0;	 						 //输出高  on
 						}							
 						break;
@@ -758,7 +759,7 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_23=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_23=0;	 						 //输出高  on
 						}							
 						break;
@@ -769,15 +770,16 @@ void TIM4_IRQHandler(void)   //TIM4中断
 						if(0== gpio_level)
 						{
 							GO_24=1;							 //输出高 gong yang:off
-							delay_ms(20);  
+							delay_ms(30);  
 							GO_24=0;	 						 //输出高  on
 						}							
 						break;
 						
-			
 					default:
 						break;
+
 				}
+				lock_all_off();
 				TIM4_Set(1);			//TIM 
 			}
 			else
