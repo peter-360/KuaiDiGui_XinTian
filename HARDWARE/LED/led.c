@@ -52,18 +52,22 @@ void LED_Init(void)
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;	    		 //LED1-->Pc2 端口配置, 推挽输出
 	GPIO_Init(GPIOA, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
 	RS485_RX_EN();
-
-
-
-	//i group1
-	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_0;//
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
- 	GPIO_Init(GPIOC, &GPIO_InitStructure);//
-	//i group2
-	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_2;//
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
- 	GPIO_Init(GPIOC, &GPIO_InitStructure);//
 	
+	//LED2_LOCK
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;	    		 //LED1-->PB5 端口配置, 推挽输出
+	GPIO_Init(GPIOB, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GPIO_ResetBits(GPIOB,GPIO_Pin_3); 						 //输出高 
+
+//	//i group1
+//	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_0;//
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
+// 	GPIO_Init(GPIOC, &GPIO_InitStructure);//
+//	//i group2
+//	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_2;//
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
+// 	GPIO_Init(GPIOC, &GPIO_InitStructure);//
+
+// ...
 	
 	
 	//o group1
@@ -792,6 +796,8 @@ void TIM4_IRQHandler(void)   //TIM4中断
 		
 		if(1== key_mode)
 		{
+			lock_channel =0;
+			lock_channel_mode2 =0;
 			TIM4_Set(0);
 		}
 		

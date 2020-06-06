@@ -14,7 +14,7 @@
 //All rights reserved	  
 ////////////////////////////////////////////////////////////////////////////////// 	  
 						    
-	 
+extern u8 lock_jiance_flag;
 void EXTIX_Init(void);//IO≥ı ºªØ
 		 					    
 #endif

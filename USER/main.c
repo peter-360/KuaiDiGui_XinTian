@@ -2987,9 +2987,9 @@ u8 key_mode =1;
 	//uart_init(9600,HCHO_Test);	 //串口初始化为9600
 	SdkEvalComIOConfig(Process_InputData);
 	 
-
-	//KEY_Init();
-	//EXTIX_Init();		//外部中断初始化
+	//lock duanlu jiance io
+	KEY_Init();
+	EXTIX_Init();		//外部中断初始化
 	 
 	LED_Init();		  	 //初始化与LED连接的硬件接口 
 
@@ -3101,6 +3101,16 @@ u8 key_mode =1;
 			{
 				SEGGER_RTT_printf(0, "---test3---\n"); 
 				LED1=!LED1;
+			}
+		}
+		
+		
+		if(tick_times%10==0)//3
+		{
+			if(1== lock_jiance_flag)
+			{
+				SEGGER_RTT_printf(0, "---test4  lock_jiance_flag---\n"); 
+				LED2_LOCK = !LED2_LOCK;
 			}
 		}
 		delay_ms(10); 
