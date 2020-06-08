@@ -31,9 +31,9 @@ void EXTIX_Init(void)
 
 
     //GPIOC2	  中断线以及中断初始化配置
-  	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB,GPIO_PinSource7);
+  	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB,GPIO_PinSource6);
 
-  	EXTI_InitStructure.EXTI_Line=EXTI_Line7;
+  	EXTI_InitStructure.EXTI_Line=EXTI_Line6;
   	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;	
   	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;//EXTI_Trigger_Rising_Falling;
   	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
@@ -89,19 +89,19 @@ void EXTI9_5_IRQHandler(void)
 	//SEGGER_RTT_printf(0, "EXTI1_IRQHandler\n"); 
   //delay_ms(10);    //消抖			 
   //if(GI_2==0)//
-	if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_7) ==1)	
+	if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_6) ==1)	
 	{
-		SEGGER_RTT_printf(0, "2-high-EXTI7_IRQHandler\n"); 
+		SEGGER_RTT_printf(0, "2-high-EXTI6_IRQHandler\n"); 
 		lock_jiance_flag=1;
 		//LED2_LOCK = !LED2_LOCK;
 		//LED1=!LED1;
 	}
 	else
 	{
-		SEGGER_RTT_printf(0, "2-low-EXTI7_IRQHandler\n"); 
+		SEGGER_RTT_printf(0, "2-low-EXTI6_IRQHandler\n"); 
 		//LED1=!LED1;
 	}
 	
 	
-	EXTI_ClearITPendingBit(EXTI_Line7);  //清除LINE15线路挂起位   EXTI9_5_IRQn
+	EXTI_ClearITPendingBit(EXTI_Line6);  //清除LINE15线路挂起位   EXTI9_5_IRQn
 }

@@ -35,7 +35,7 @@ void KEY_Init(void)
 // 	GPIO_Init(GPIOC, &GPIO_InitStructure);//
 
 	//group2
-	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_7;//
+	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_6;//
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD; //
  	GPIO_Init(GPIOB, &GPIO_InitStructure);//
 	

@@ -58,6 +58,12 @@ void LED_Init(void)
 	GPIO_Init(GPIOB, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
 	GPIO_ResetBits(GPIOB,GPIO_Pin_3); 						 //输出高 
 
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;	    		 //LED1-->PB5 端口配置, 推挽输出
+	GPIO_Init(GPIOB, &GPIO_InitStructure);	  				 //推挽输出 ，IO口速度为50MHz
+	GPIO_ResetBits(GPIOB,GPIO_Pin_7); 						 //输出高 
+
+
 //	//i group1
 //	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_0;//
 //	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
@@ -330,8 +336,10 @@ void TIM4_IRQHandler(void)   //TIM4中断
 		
 					case 3:
 						GO_3=1;							 //open
+						PBout(7) = 1;
 						delay_ms(100);  
 						GO_3=0;	 						 //close
+						PBout(7) = 0;
 						
 
 						break;
